@@ -13,10 +13,14 @@ public class Main {
     private static final String BASE_URL = "https://api.freecurrencyapi.com/v1/latest";
 
     public static void main(String[] args) throws Exception {
-        // Create a Url object from the BASE_URL and API_KEY
+
         DataRead reader = new DataRead();
         HashMap<String, Double> currencyRates = reader.fetchData(BASE_URL, API_KEY);
         System.out.println(currencyRates);
+
+        RateCalculator rateCalculator = new RateCalculator();
+        //rateCalculator.calculateRate(currencyRates, "BGN", "NOK", 100);
+        System.out.println(rateCalculator.calculateRate(currencyRates, "BGN", "NOK", 100));
 
     }
 }
