@@ -9,10 +9,9 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 
 public class DataRead {
-    private static final String API_KEY = "fca_live_m55KwmNC2VYX0dcfWM04hXGanbDzUe7mM9xyUd7b";
-    private static final String BASE_URL = "https://api.freecurrencyapi.com/v1/latest";
 
-    public HashMap<String, Double> fetchData() throws Exception {
+
+    public HashMap<String, Double> fetchData(String BASE_URL, String API_KEY) throws Exception {
         URL url = new URL(BASE_URL + "?apikey=" + API_KEY);
 
         // Create a connection

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CurencyCoverter.iml" filepath="$PROJECT_DIR$/CurencyCoverter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CurrencyCoverter.iml" filepath="$PROJECT_DIR$/CurrencyCoverter.iml" />
     </modules>
   </component>
 </project>
