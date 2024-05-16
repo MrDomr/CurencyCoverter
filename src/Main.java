@@ -16,7 +16,10 @@ public class Main {
 
         DataRead reader = new DataRead();
         HashMap<String, Double> currencyRates = reader.fetchData(BASE_URL, API_KEY);
-        System.out.println(currencyRates);
+        //System.out.println(currencyRates);
+
+        Dictionary dict = new Dictionary();
+        dict.getCurrencyMap();
 
         RateCalculator rateCalculator = new RateCalculator();
         //rateCalculator.calculateRate(currencyRates, "BGN", "NOK", 100);

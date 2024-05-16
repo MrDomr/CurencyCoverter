@@ -49,9 +49,12 @@ public class DataRead {
             HashMap<String, Double> data = gson.fromJson(gson.fromJson(jsonData, JsonObject.class).getAsJsonObject("data"), type);
 
             // Print the HashMap
+            /*
             for(String key : data.keySet()) {
                 System.out.println(key + ": " + data.get(key));
             }
+
+             */
             return data;
         }
         else{
