@@ -23,7 +23,13 @@ public class Main {
 
         RateCalculator rateCalculator = new RateCalculator();
         //rateCalculator.calculateRate(currencyRates, "BGN", "NOK", 100);
-        System.out.println(rateCalculator.calculateRate(currencyRates, "BGN", "NOK", 100));
+        //System.out.println(rateCalculator.calculateRate(currencyRates, "BGN", "NOK", 100));
+
+        ListAllRates temp = new ListAllRates();
+        HashMap<String, Double> allRates = temp.getAllRates(currencyRates, dict.getCurrencyMap(), "USD");
+        for(String key : allRates.keySet()) {
+            System.out.println(key + ": " + allRates.get(key));
+        }
 
     }
 }

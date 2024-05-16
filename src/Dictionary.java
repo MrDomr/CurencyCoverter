@@ -15,9 +15,12 @@ public class Dictionary {
             e.printStackTrace();
         }
         //System.out.println(currencyMap);
+        /*
         for(String key : currencyMap.keySet()) {
             System.out.println(key + ": " + currencyMap.get(key));
         }
+
+         */
         return currencyMap;
     }
 }
