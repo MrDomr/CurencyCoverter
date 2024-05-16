@@ -9,9 +9,15 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 
 public class DataRead {
+    private final String BASE_URL;
+    private final String API_KEY;
 
+    public DataRead(String BASE_URL, String API_KEY) {
+        this.BASE_URL = BASE_URL;
+        this.API_KEY = API_KEY;
+    }
 
-    public HashMap<String, Double> fetchData(String BASE_URL, String API_KEY) throws Exception {
+    public HashMap<String, Double> fetchData() throws Exception {
         URL url = new URL(BASE_URL + "?apikey=" + API_KEY);
 
         // Create a connection
@@ -25,12 +31,11 @@ public class DataRead {
             // Create a BufferedReader to read the response
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String line;
-            StringBuffer responseContent = new StringBuffer();
+            StringBuilder responseContent = new StringBuilder();
 
             // Read the response
             while((line = reader.readLine()) != null){
                 responseContent.append(line);
-                System.out.println(line);
             }
 
             // Close the reader and connection
@@ -45,8 +50,6 @@ public class DataRead {
             // Define the type for the HashMap
             Type type = new TypeToken<HashMap<String, Double>>(){}.getType();
 
-            // Parse the JSON data to a HashMap
-            HashMap<String, Double> data = gson.fromJson(gson.fromJson(jsonData, JsonObject.class).getAsJsonObject("data"), type);
 
             // Print the HashMap
             /*
@@ -55,7 +58,10 @@ public class DataRead {
             }
 
              */
-            return data;
+
+            // Parse the JSON data to a HashMap and return it
+
+            return gson.fromJson(gson.fromJson(jsonData, JsonObject.class).getAsJsonObject("data"), type);
         }
         else{
             return null;

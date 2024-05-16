@@ -5,12 +5,20 @@ import java.util.HashMap;
 
 public class Dictionary {
     private HashMap<String, String> currencyMap;
+    private String filePath;
 
-    public HashMap<String, String> getCurrencyMap() {
+    public Dictionary(String filePath) {
+        this.filePath = filePath;
+        this.currencyMap = loadCurrencyMap();
+    }
+
+    private HashMap<String, String> loadCurrencyMap() {
+        HashMap<String, String> map = new HashMap<>();
         Gson gson = new Gson();
         try {
-            FileReader reader = new FileReader("JsonFiles/dict.json");
-            currencyMap = gson.fromJson(reader, HashMap.class);
+            FileReader reader = new FileReader(filePath);
+            map = gson.fromJson(reader, HashMap.class);
+            reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -21,6 +29,10 @@ public class Dictionary {
         }
 
          */
-        return currencyMap;
+        return map;
+    }
+
+    public HashMap<String, String> getCurrencyMap() {
+        return this.currencyMap;
     }
 }
