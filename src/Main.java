@@ -17,5 +17,6 @@ public class Main {
         DataRead reader = new DataRead();
         HashMap<String, Double> currencyRates = reader.fetchData(BASE_URL, API_KEY);
         System.out.println(currencyRates);
+
     }
 }
