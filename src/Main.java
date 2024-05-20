@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -7,6 +8,7 @@ import com.google.gson.Gson;
 import java.util.HashMap;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
+import javax.swing.*; // GUI library.
 
 public class Main {
     private static final String API_KEY = "fca_live_m55KwmNC2VYX0dcfWM04hXGanbDzUe7mM9xyUd7b";
@@ -14,6 +16,10 @@ public class Main {
     private static final String DICTIONARY_PATH = "JsonFiles/dict.json";
 
     public static void main(String[] args) throws Exception {
+
+        // GUI
+        Frame frame = new Frame();
+
 
         DataRead reader = new DataRead(BASE_URL, API_KEY);
 
@@ -36,7 +42,6 @@ public class Main {
             System.out.println(key + ": " + allRates.get(key));
 
         }
-
     }
 
 }
