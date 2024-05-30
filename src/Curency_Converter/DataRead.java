@@ -1,3 +1,5 @@
+package Curency_Converter;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -27,14 +29,15 @@ public class DataRead {
         int responseCode = connection.getResponseCode();
 
         // If the request was successful
-        if(responseCode == 200){
+        if(responseCode == 200) {
+
             // Create a BufferedReader to read the response
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             String line;
             StringBuilder responseContent = new StringBuilder();
 
             // Read the response
-            while((line = reader.readLine()) != null){
+            while ((line = reader.readLine()) != null) {
                 responseContent.append(line);
             }
 
@@ -51,20 +54,17 @@ public class DataRead {
             Type type = new TypeToken<HashMap<String, Double>>(){}.getType();
 
 
-            // Print the HashMap
-            /*
-            for(String key : data.keySet()) {
-                System.out.println(key + ": " + data.get(key));
+            // Parse the JSON data to a HashMap and return it
+            JsonObject jsonObject = gson.fromJson(jsonData, JsonObject.class);
+            if (jsonObject.has("data")) {
+                JsonObject dataObject = jsonObject.getAsJsonObject("data");
+                return gson.fromJson(dataObject, type);
+            } else {
+                throw new Exception("Invalid response from API: " + jsonData);
             }
 
-             */
-
-            // Parse the JSON data to a HashMap and return it
-
-            return gson.fromJson(gson.fromJson(jsonData, JsonObject.class).getAsJsonObject("data"), type);
-        }
-        else{
-            return null;
+        } else {
+            throw new Exception("Failed to fetch data: " + responseCode);
         }
     }
 }
