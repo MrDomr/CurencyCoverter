@@ -10,7 +10,6 @@ public class ComboBoxPanel extends JPanel {
 
         this.setLayout(null); // Disable layout manager
 
-
         // Convert from the currency
         JLabel fromLabel = new JLabel("From:");
         fromLabel.setBounds(10, 10, 50, 30);
@@ -25,7 +24,6 @@ public class ComboBoxPanel extends JPanel {
 
         toCurrency = new JComboBox<>(currencyOptions);
         toCurrency.setBounds(350, 10, 200, 30);
-
 
         this.add(fromLabel);
         this.add(fromCurrency);
