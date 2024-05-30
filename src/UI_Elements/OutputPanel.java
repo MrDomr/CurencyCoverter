@@ -18,7 +18,6 @@ public class OutputPanel extends JPanel {
 
         this.add(resultLabel);
         this.add(outputField);
-        //this.setBackground(new Color(0x364f5a)); // Background for the panel
     }
 
     public void setResult(double result) {
