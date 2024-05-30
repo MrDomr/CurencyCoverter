@@ -53,7 +53,6 @@ public class DataRead {
             // Define the type for the HashMap
             Type type = new TypeToken<HashMap<String, Double>>(){}.getType();
 
-
             // Parse the JSON data to a HashMap and return it
             JsonObject jsonObject = gson.fromJson(jsonData, JsonObject.class);
             if (jsonObject.has("data")) {
