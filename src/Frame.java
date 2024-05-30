@@ -53,7 +53,7 @@ public class Frame extends JFrame {
         // Set bounds for each panel manually
         int objX = 50;
         int objY = 70;
-        int objWidth = 675; // Increased width for currency list panel
+        int objWidth = 675;
         int objHeight = 50;
 
         int buttonWidth = 100;
@@ -64,7 +64,7 @@ public class Frame extends JFrame {
         inputPanel.setBounds(objX, objY * 2, objWidth, objHeight);
         buttonPanel.setBounds(objX * 6, objY * 3, buttonWidth, buttonHeight);
         outputPanel.setBounds(objX, objY * 4 - (objHeight - buttonHeight), objWidth, objHeight);
-        currencyListPanel.setBounds(objX, objY * 5, objWidth, 200); // Added currency list panel
+        currencyListPanel.setBounds(objX, objY * 5, objWidth, 200);
 
         // Add components to the frame
         this.add(labelPanel);
@@ -72,7 +72,7 @@ public class Frame extends JFrame {
         this.add(inputPanel);
         this.add(outputPanel);
         this.add(buttonPanel);
-        this.add(currencyListPanel); // Added currency list panel
+        this.add(currencyListPanel);
 
         // Add button action listener
         buttonPanel.getButton().addActionListener(e -> {
