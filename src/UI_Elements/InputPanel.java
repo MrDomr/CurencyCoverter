@@ -17,7 +17,6 @@ public class InputPanel extends JPanel {
 
         this.add(amountLabel);
         this.add(inputField);
-        //this.setBackground(new Color(0x364f5a)); // Background for the panel
     }
 
     public double getAmount() {
